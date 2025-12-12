@@ -17,9 +17,39 @@ const Signup = () => {
     setProfileImage(e.target.files[0]);
   };
 
+  const validatePassword = (password) => {
+    const hasLetter = /[a-zA-Z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecial = /[^a-zA-Z0-9]/.test(password);
+    return hasLetter && hasNumber && hasSpecial;
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
+    if (name.trim().length < 2) {
+      toast.error('Name must be at least 2 characters long');
+      setIsLoading(false);
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toast.error('Please enter a valid email address');
+      setIsLoading(false);
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      toast.error('Password must contain letters, numbers, and special characters');
+      setIsLoading(false);
+      return;
+    }
     
     const formData = new FormData();
     formData.append('name', name);
