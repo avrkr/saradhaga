@@ -60,9 +60,7 @@ const Signup = () => {
     }
 
     try {
-      await api.post('/auth/signup', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
+      await api.post('/auth/signup', formData);
       toast.success('OTP sent to your email!');
       navigate('/verify-otp', { state: { email } });
     } catch (error) {
