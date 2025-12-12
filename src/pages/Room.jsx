@@ -300,8 +300,8 @@ const Room = () => {
 
   if (!room) return <div>Loading...</div>;
 
-  const isHost = room.host._id === user._id;
-  const hasHyped = room.hypes?.includes(user._id);
+  const isHost = room.host?._id === user?._id;
+  const hasHyped = room.hypes?.includes(user?._id);
 
   return (
     <div className="h-[calc(100vh-64px)] flex flex-col md:flex-row bg-gray-100">
@@ -406,9 +406,9 @@ const Room = () => {
         
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.map((msg) => (
-            <div key={msg._id} className={`flex flex-col ${msg.sender._id === user._id ? 'items-end' : 'items-start'}`}>
-              <div className={`max-w-[80%] rounded-lg p-3 ${msg.sender._id === user._id ? 'bg-primary text-white' : 'bg-gray-100 text-gray-800'}`}>
-                <p className="text-xs opacity-75 mb-1">{msg.sender.name}</p>
+            <div key={msg._id} className={`flex flex-col ${msg.sender?._id === user?._id ? 'items-end' : 'items-start'}`}>
+              <div className={`max-w-[80%] rounded-lg p-3 ${msg.sender?._id === user?._id ? 'bg-primary text-white' : 'bg-gray-100 text-gray-800'}`}>
+                <p className="text-xs opacity-75 mb-1">{msg.sender?.name || 'Unknown'}</p>
                 <p>{msg.text}</p>
               </div>
               
