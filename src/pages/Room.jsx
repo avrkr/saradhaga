@@ -351,11 +351,11 @@ const Room = () => {
             {/* Self */}
             <div className="flex flex-col items-center p-4 bg-gray-50 rounded-lg border-2 border-primary">
               <div className="w-20 h-20 rounded-full bg-gray-300 mb-2 overflow-hidden">
-                {user.profileImage ? (
+                {user?.profileImage ? (
                   <img src={user.profileImage} alt={user.name} className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-gray-500">
-                    {user.name[0]}
+                    {user?.name?.[0]}
                   </div>
                 )}
               </div>

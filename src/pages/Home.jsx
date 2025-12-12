@@ -66,13 +66,13 @@ const Home = () => {
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
               <div className="flex items-center">
                 <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                  {room.host.profileImage ? (
+                  {room.host?.profileImage ? (
                     <img src={room.host.profileImage} alt={room.host.name} className="w-full h-full object-cover" />
                   ) : (
-                    <span className="text-xs font-bold text-gray-500">{room.host.name[0]}</span>
+                    <span className="text-xs font-bold text-gray-500">{room.host?.name?.[0] || '?'}</span>
                   )}
                 </div>
-                <span className="ml-2 text-sm text-gray-600">Hosted by {room.host.name}</span>
+                <span className="ml-2 text-sm text-gray-600">Hosted by {room.host?.name || 'Unknown'}</span>
               </div>
               <div className="flex items-center text-accent font-medium">
                 <Mic className="w-4 h-4 mr-1" />
