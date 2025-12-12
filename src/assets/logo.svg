@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="10" fill="#FFFFFF"/>
+  <text x="20" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#FF7A59">Saradhaga</text>
+  <circle cx="170" cy="30" r="10" fill="#6C63FF"/>
+  <path d="M165 32 Q170 38 175 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
